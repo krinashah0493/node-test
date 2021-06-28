@@ -1,0 +1,47 @@
+{
+	"info": {
+		"_postman_id": "fff793ef-bebd-48d1-9e9b-236a58f5e451",
+		"name": "node-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:4000/artists",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Status code is 401 and has message property', function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.response.to.have.status(401);",
+							"    pm.expect(jsonData.message).to.be.eql('No authorization token was found');",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response has artists list\", function () {",
+							"    pm.response.to.be.a('object');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFrTkNNVU0xTTBNeE9VUkZRakpFTURVM01ESTBNVVUxUmpKRU5UVkJOakkzUlVGRE9VTkZRdyJ9.eyJuaWNrbmFtZSI6ImtyaW5hc2hhaDA0OTMiLCJuYW1lIjoia3JpbmFzaGFoMDQ5M0BnbWFpbC5jb20iLCJwaWN0dXJlIjoiaHR0cHM6Ly9zLmdyYXZhdGFyLmNvbS9hdmF0YXIvYWFiYmM0ZDAwMTg1YTUwYTg2Zjg5NjgwNTcxMzRlNDg_cz00ODAmcj1wZyZkPWh0dHBzJTNBJTJGJTJGY2RuLmF1dGgwLmNvbSUyRmF2YXRhcnMlMkZrci5wbmciLCJ1cGRhdGVkX2F0IjoiMjAyMS0wNi0wOFQxNjoyNjoyMC4zODdaIiwiZW1haWwiOiJrcmluYXNoYWgwNDkzQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJpc3MiOiJodHRwczovL2N1dHRpbWUtZGV2LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2MGI3NTljM2I3OGVkZTAwNjg0OTA2ZWQiLCJhdWQiOiJWT0FOTlV6T2NRSVM1andyTWRjbTVmcTd1blppMFRiRyIsImlhdCI6MTYyMzQwMDkyNSwiZXhwIjoxNjIzNDM2OTI1LCJub25jZSI6IlVIcG1iRkZHYlcxdWRuRkpjbWhMVEVGSFVuWnljM2RTZUhWVVkzUmtjMlZOV0ZGWU1IVllUamRYYkE9PSJ9.v3sKZC7283eoqz2UOvLoY33sZtZ0TwulDp4akaitLzCETExudkEnyhlDeo2zhBoX_zpOATa5CZ8Sy1ZZ_0ce0PsYPfOsvzihJiY58ba2K-vR8afqEtzb7c7PYEB3uucZPv6YK4Kd1ficLi37KKCCMQWV0irgcOA23u-Dv-0Hwvha1cCn6CS1lI6H7Xoea80RccAVT5jZT3eUoBefJ4Paqu4ELPK7hGS79t-PqPo5i3AvS8WXXGJyrcR7KyD8jEzPYHNIbWdajV8P75QE-Hu98fJ4axRKJF7zb0trJgM4MR4aTXm3CfRM1yycok-ftODA2HnwMJ8ErRmQj2SOglo0TA",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:4000/artists"
+			},
+			"response": []
+		}
+	]
+}
